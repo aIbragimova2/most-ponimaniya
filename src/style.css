@@ -1,0 +1,122 @@
+:root {
+  --color-bg: #e7ddd3;
+  --color-bg-soft: #f2ebe3;
+  --color-brown: #4a3728;
+  --color-brown-mid: #5c4333;
+  --color-text-on-light: #4a3728;
+  --color-text-on-dark: #e7ddd3;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --shadow-soft: 0 8px 32px rgba(74, 55, 40, 0.12);
+  --font-ui: 'Nunito', system-ui, sans-serif;
+  --font-book: 'Literata', Georgia, serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.25, 0.8, 0.25, 1);
+  --dur-fast: 0.2s;
+  --dur-med: 0.35s;
+  --dur-slow: 0.55s;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  min-height: 100%;
+  min-height: 100dvh;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  min-height: 100dvh;
+  font-family: var(--font-ui);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--color-text-on-light);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  min-height: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Тач: меньше серой вспышки при тапе, чуть удобнее клики */
+a,
+button,
+[role='button'],
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: rgba(74, 55, 40, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Телефоны: альбом — чуть плотнее текст, меньше «пустого» воздуха */
+@media (max-height: 480px) and (orientation: landscape) {
+  body {
+    font-size: 1rem;
+  }
+}
+
+/* Телефоны: портрет — комфортная ширина строки уже задаётся контейнерами */
+@media (max-width: 480px) and (orientation: portrait) {
+  body {
+    font-size: 1.02rem;
+  }
+}
+
+a {
+  color: var(--color-brown);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--color-brown-mid);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-brown);
+}
+
+h1 {
+  font-size: clamp(1.65rem, 4vw, 2.25rem);
+}
+
+h2 {
+  font-size: clamp(1.35rem, 3vw, 1.65rem);
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
