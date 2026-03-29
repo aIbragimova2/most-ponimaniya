@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { RouterLink, useRoute } from 'vue-router'
+import { publicUrl } from '../utils/publicUrl'
 
 const route = useRoute()
+
+const logoSrc = publicUrl('images/logo-mark.svg')
 
 const links = [
   { to: '/', label: 'Главная' },
@@ -21,7 +24,7 @@ function isActive(path: string): boolean {
   <header class="header">
     <div class="header__inner">
       <RouterLink to="/" class="header__brand">
-        <img class="header__logo" src="/images/logo-mark.svg" width="40" height="40" alt="" />
+        <img class="header__logo" :src="logoSrc" width="40" height="40" alt="" />
         <span class="header__brand-text">
           <span class="header__brand-title">Мост понимания</span>
           <span class="header__brand-sub">школьный проект</span>

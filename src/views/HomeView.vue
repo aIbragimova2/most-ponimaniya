@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import { publicUrl } from '../utils/publicUrl'
 
 const cards = [
   {
@@ -7,34 +8,36 @@ const cards = [
     title: 'Книга',
     text: 'Читать простым языком: как бывают отношения с родителями и что с этим делают обычные люди.',
     tag: 'читать',
-    img: '/images/card-book.svg',
-    imgAlt: 'Иконка: открытая книга',
+    img: publicUrl('images/card-book.svg'),
+    imgAlt: '',
   },
   {
     to: '/rekomendacii',
     title: 'Рекомендации',
     text: 'Советы по шагам — листай как страницы. Без морали и давления, только идеи, которые можно попробовать.',
     tag: 'советы',
-    img: '/images/card-tips.svg',
-    imgAlt: 'Иконка: подсказка',
+    img: publicUrl('images/card-tips.svg'),
+    imgAlt: '',
   },
   {
     to: '/test-roditeli',
     title: 'Тест для родителей',
     text: 'Отдельная анкета для взрослых: как вы чувствуете контакт с ребёнком и где узкие места.',
     tag: 'тест',
-    img: '/images/card-parents.svg',
-    imgAlt: 'Иконка: взрослый и ребёнок',
+    img: publicUrl('images/card-parents.svg'),
+    imgAlt: '',
   },
   {
     to: '/test-podrostki',
     title: 'Тест для подростков',
     text: 'Отдельная анкета для подростков: как тебе дома и слышат ли твои чувства.',
     tag: 'тест',
-    img: '/images/card-teen.svg',
-    imgAlt: 'Иконка: подросток',
+    img: publicUrl('images/card-teen.svg'),
+    imgAlt: '',
   },
 ]
+
+const heroImage = publicUrl('images/hero-bridge.svg')
 </script>
 
 <template>
@@ -54,7 +57,7 @@ const cards = [
       <div class="hero__figure">
         <img
           class="hero__img"
-          src="/images/hero-bridge.svg"
+          :src="heroImage"
           width="480"
           height="360"
           alt=""
